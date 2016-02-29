@@ -2,29 +2,42 @@
 
 /**
  * @ngdoc function
- * @name projetEcoleApp.controller:ContactCtrl
+ * @name projetEcoleApp.controller:SignupCtrl
  * @description
- * # ContactCtrl
+ * # SignupCtrl
  * Controller of the projetEcoleApp
  */
+ 
+ var compareTo = function() {
+    return {
+        require: "ngModel",
+        scope: {
+            otherModelValue: "=compareTo"
+        },
+        link: function(scope, element, attributes, ngModel) {
+             
+            ngModel.$validators.compareTo = function(modelValue) {
+                return modelValue == scope.otherModelValue;
+            };
+ 
+            scope.$watch("otherModelValue", function() {
+                ngModel.$validate();
+            });
+        }
+    };
+};
+ 
 angular.module('projetEcoleApp')
-	.controller('ContactCtrl', function ($scope) {
-		$scope.contactType=[
-			{name:'Problèmes'},
-			{name:'Félicitations'},
-			{name:'Demandes'},
-			{name:'Plaintes'},
-			{name:'Autre'}
-		];
+  .controller('SignupCtrl', function ($scope) {
 		$scope.save = function() {
 			$scope.$broadcast('show-errors-check-validity');
     
-			if ($scope.contactForm.$valid) {
+			if ($scope.signUpForm.$valid) {
 				//SUBMIT TO SERVER
 			}
 		};
-	})
-	.directive('showErrors', function ($timeout, showErrorsConfig) {
+  })
+  .directive('showErrors', function ($timeout, showErrorsConfig) {
 		var getShowSuccess, linkFn;
 		getShowSuccess = function (options) {
 			var showSuccess;
@@ -94,4 +107,6 @@ angular.module('projetEcoleApp')
 		this.$get = function () {
 			return { showSuccess: _showSuccess };
 		};
-	});
+	})
+	.directive("compareTo", compareTo);
+
