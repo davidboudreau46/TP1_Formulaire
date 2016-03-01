@@ -54,7 +54,7 @@ body {
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
-}
+} 
 .marketing p + h4 {
   margin-top: 28px;
 }
@@ -88,4 +88,9 @@ body {
 
 .form-group.has-error .help-block {
   display: block;
+}
+
+.popoverDirective {
+  position: absolute;
+  z-index: 100;
 }

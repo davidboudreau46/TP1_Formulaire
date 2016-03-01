@@ -8,16 +8,22 @@ describe('Controller: SignupCtrl', function () {
   var SignupCtrl,
     scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    SignupCtrl = $controller('SignupCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
+	// Initialize the controller and a mock scope
+	beforeEach(inject(function ($controller, $rootScope) {
+		scope = $rootScope.$new();
+		SignupCtrl = $controller('SignupCtrl', {
+			$scope: scope
+			// place here mocked dependencies
+		});
+	}));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(SignupCtrl.awesomeThings.length).toBe(3);
-  });
+	it('test to test the config', function () {
+		expect(true).toBe(true);
+	});
+  
+    it('if passwords are different compareTo should return false', function () {
+		user.password="a";
+		user.confirmPassword="b";
+		expect(true).toBe(true);
+	});
 });

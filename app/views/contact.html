@@ -3,7 +3,7 @@
         <label class="control-label col-xs-12 col-sm-6 col-lg-4">Nom d'utilisateur: </label>
 		<div class="col-xs-12 col-sm-6 col-lg-8">
 			<input type="text" class="form-control" name="contactName" ng-model="contact.name" required />
-			<p class="help-block text-center" ng-messages="contactForm.contactName.$error.required">Le nom d'utilisateur est requis.</p>
+			<p class="help-block text-center" ng-show="contactForm.contactName.$error.required">Le nom d'utilisateur est requis.</p>
 		</div>
 	</div>
 	<div class="form-group row" show-errors='{showSuccess: true}'>
@@ -34,7 +34,6 @@
 			<p class="help-block text-center" ng-show="contactForm.message.$error.required">Le message est requis.</p>
 		</div>
 	</div>
-	<br>
 	<div class="form-group row">
 		<div class="col-xs-12 col-sm-12 col-lg-12">
 			<button class="btn btn-primary pull-right" ng-click="save()">Envoyer</button>
