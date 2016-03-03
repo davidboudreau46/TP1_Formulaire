@@ -16,8 +16,8 @@ angular.module('projetEcoleApp')
     }).then(function successCallback(response) {
       $scope.movies = response.data.Search;
       console.log(response);
-    }, function errorCallback(response) {
-      $scope.movies = [{Title : "Erreur", Year : "Erreur" }];
+    }, function errorCallback() {
+      $scope.movies = [{Title : 'Erreur', Year : 'Erreur' }];
     });
 
     //$scope.movies = [{Title : "ok", Year : "2016"}];
