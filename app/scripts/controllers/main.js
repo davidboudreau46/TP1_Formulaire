@@ -9,17 +9,19 @@
  */
 angular.module('projetEcoleApp')
   .controller('MainCtrl', function ($scope, $http) {
-
+    var possibleConsonants = "bcdfghjklmnpqrstvwxz";
+    var possibleVowels = "aeiouy";
     $http({
       method: 'GET',
-      url: 'http://omdbapi.com/?s=a*&type=movie&y=2016'
+      url: 'http://omdbapi.com/?s=' + possibleConsonants.charAt(Math.floor(Math.random() * possibleConsonants.length)) + possibleVowels.charAt(Math.floor(Math.random() * possibleVowels.length)) + '*&type=movie&y=2016'
     }).then(function successCallback(response) {
       $scope.movies = response.data.Search;
-      console.log(response);
-    }, function errorCallback() {
+      for(var i = 0; i < $scope.movies.length; i++){
+        if($scope.movies[i].Poster === "N/A"){
+          $scope.movies[i].Poster = "images/posterNotAvailable.jpg";
+        }
+      }
+    }, function errorCallback(response) {
       $scope.movies = [{Title : 'Erreur', Year : 'Erreur' }];
     });
-
-    //$scope.movies = [{Title : "ok", Year : "2016"}];
-    //$scope.movies = $http.get('http://omdbapi.com/?s=a*&y=2016');
   });

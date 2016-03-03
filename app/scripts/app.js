@@ -41,10 +41,10 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signUp'
       })
-      .when('/confirmSuccessView', {
-        templateUrl: 'views/confirmsuccessview.html',
-        controller: 'ConfirmsuccessviewCtrl',
-        controllerAs: 'confirmSuccessView'
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'search'
       })
       .otherwise({
         redirectTo: '/'
