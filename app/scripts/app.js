@@ -31,7 +31,29 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl',
+        controllerAs: 'contact'
+      })
+      .when('/signUp', {
+        templateUrl: 'views/signup.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'signUp'
+      })
+      .when('/confirmSuccessView', {
+        templateUrl: 'views/confirmsuccessview.html',
+        controller: 'ConfirmsuccessviewCtrl',
+        controllerAs: 'confirmSuccessView'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .controller('HeaderController',function HeaderController($scope, $location) 
+	{ 
+		$scope.isActive = function (viewLocation) { 
+			return viewLocation === $location.path();
+		};
+	});
+  
