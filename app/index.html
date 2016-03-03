@@ -38,8 +38,8 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="HeaderController">
 			<ul class="nav navbar-nav">
               <li ng-class="{ active: isActive('/')}"><a href="#/">Home</a></li>
-              <li ng-class="{ active: isActive('/about')}"><a ng-href="#/about">About</a></li>
               <li ng-class="{ active: isActive('/contact')}"><a ng-href="#/contact">Contact</a></li>
+              <li ng-class="{ active: isActive('/search')}"><a ng-href="#/search">Recherche</a></li>
             </ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li ng-class="{ active: isActive('/signUp')}"><a ng-href="#/signUp">Inscription</a></li>
@@ -90,9 +90,9 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/controllers/signup.js"></script>
+        <script src="scripts/controllers/search.js"></script>
         <!-- endbuild -->
 </body>
 </html>
