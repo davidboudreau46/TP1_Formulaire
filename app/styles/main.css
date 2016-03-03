@@ -91,6 +91,10 @@ body {
 }
 
 .popoverDirective {
-  position: absolute;
-  z-index: 100;
+	color : black;
+	text-align: center;
+	position: absolute;
+	background-color: rgba(255,255,255,  1);
+	border-style: ridge;
+	z-index: 100;
 }

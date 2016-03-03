@@ -16,13 +16,9 @@ angular.module('projetEcoleApp')
 			{name:'Plaintes'},
 			{name:'Autre'}
 		];
-		$scope.save = function() {
-			$scope.$broadcast('show-errors-check-validity');
-    
-			if ($scope.contactForm.$valid) {
-				//SUBMIT TO SERVER
-			}
-		};
+		$scope.sendForm= function(){
+			$scope.sentForm=true;
+		}
 	})
 	.directive('showErrors', function ($timeout, showErrorsConfig) {
 		var getShowSuccess, linkFn;

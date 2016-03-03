@@ -7,16 +7,12 @@
  * # SignupCtrl
  * Controller of the projetEcoleApp
  */
- 
+  
 angular.module('projetEcoleApp')
 	.controller('SignupCtrl', function ($scope) {
-		$scope.save = function() {
-			$scope.$broadcast('show-errors-check-validity');
-    
-			if ($scope.signUpForm.$valid) {
-				//SUBMIT TO SERVER
-			}
-		};
+		$scope.sendForm= function(){
+			$scope.sentForm=true;
+		}
 	})
 	.directive("compareTo", function() {
 		return {

@@ -41,6 +41,11 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signUp'
       })
+      .when('/confirmSuccessView', {
+        templateUrl: 'views/confirmsuccessview.html',
+        controller: 'ConfirmsuccessviewCtrl',
+        controllerAs: 'confirmSuccessView'
+      })
       .otherwise({
         redirectTo: '/'
       });
