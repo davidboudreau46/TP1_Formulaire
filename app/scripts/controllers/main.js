@@ -22,6 +22,6 @@ angular.module('projetEcoleApp')
         }
       }
     }, function errorCallback(response) {
-      $scope.movies = [{Title : "Erreur", Year : "Erreur" }];
+      $scope.movies = [{Title : 'Erreur', Year : 'Erreur' }];
     });
   });
