@@ -18,14 +18,14 @@ angular.module('projetEcoleApp')
 		];
 		$scope.sendForm= function(){
 			$scope.sentForm=true;
-		}
-	})
+		};
+	}) 
 	.directive('showErrors', function ($timeout, showErrorsConfig) {
 		var getShowSuccess, linkFn;
 		getShowSuccess = function (options) {
 			var showSuccess;
 			showSuccess = showErrorsConfig.showSuccess;
-			if (options && options.showSuccess != null) {
+			if (options && options.showSuccess !== null) {
 				showSuccess = options.showSuccess;
 			}
 			return showSuccess;
@@ -60,10 +60,11 @@ angular.module('projetEcoleApp')
 				return $timeout(function () {
 					el.removeClass('has-error');
 					el.removeClass('has-success');
-					return blurred = false;
+					blurred = false;
+					return blurred;
 				}, 0, false);
 			});
-			return toggleClasses = function (invalid) {
+			toggleClasses = function (invalid) {
 				el.toggleClass('has-error', invalid);
 				if (showSuccess) {
 					return el.toggleClass('has-success', !invalid);
@@ -73,7 +74,7 @@ angular.module('projetEcoleApp')
 		return {
 			restrict: 'A',
 			require: '^form',
-			compile: function (elem, attrs) {
+			compile: function (elem) {
 			if (!elem.hasClass('form-group')) {
 				throw 'show-errors element does not have the \'form-group\' class';
 			}
@@ -85,7 +86,8 @@ angular.module('projetEcoleApp')
 		var _showSuccess;
 		_showSuccess = false;
 		this.showSuccess = function (showSuccess) {
-			return _showSuccess = showSuccess;
+			_showSuccess = showSuccess;
+			return _showSuccess ;
 		};
 		this.$get = function () {
 			return { showSuccess: _showSuccess };

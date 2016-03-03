@@ -17,7 +17,4 @@ describe('Controller: AboutCtrl', function () {
     });
   }));
 
-  it('test to test the config', function () {
-    expect(true).toBe(true);
-  });
 });

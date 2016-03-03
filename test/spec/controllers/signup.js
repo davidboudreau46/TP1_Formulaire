@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Controller: SignupCtrl', function () {
 
 	// load the controller's module
@@ -14,10 +16,5 @@ describe('Controller: SignupCtrl', function () {
 			// place here mocked dependencies
 		});
 	}));
-	
 
-	it('test to test the config', function () {
-		expect(true).toBe(true);
-	});
-  
 });
