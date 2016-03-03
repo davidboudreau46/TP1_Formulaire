@@ -41,6 +41,11 @@ angular
         controller: 'SignupCtrl',
         controllerAs: 'signUp'
       })
+      .when('/search', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'search'
+      })
       .otherwise({
         redirectTo: '/'
       });

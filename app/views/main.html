@@ -13,13 +13,11 @@
    <div class = "row">
        <div ng-repeat="movie in movies | limitTo:6">
         <div class="col-sm-12 col-xs-12 col-md-4 col-lg-4">
-          <div class="thumbnail"  width="300px" height="200px">
+          <div class="thumbnail"  style="min-height: 350px;">
             <p>{{movie.Title}}</p>
-            <!--<img src="{{movie.Poster}}" class="img-rounded" ><br>-->
             <img src="{{movie.Poster}}" width="75%" height="75%">
          </div>
        </div>
      </div>
    </div>
-  <hr>
 </div>
