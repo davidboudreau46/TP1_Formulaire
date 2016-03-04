@@ -2,22 +2,26 @@
 
 describe('Controller: SearchCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('projetEcoleApp'));
+	var $httpBackend, $rootScope, createController, authRequestHandler;
 
-  var SearchCtrl,
-    scope;
+	// load the controller's module
+	beforeEach(module('projetEcoleApp'));
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    SearchCtrl = $controller('SearchCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
-  }));
+	// Initialize the controller and a mock scope
+	beforeEach(inject(function ($injector) {
+		$httpBackend = $injector.get('$httpBackend');
+		authRequestHandler = $httpBackend.when('GET', '/auth')
+		.respond({userId: 'userX'}, {'A-Token': 'xxx'});
+		$rootScope = $injector.get('$rootScope');
+		var $controller = $injector.get('$controller');
+		createController = function() {
+			return $controller('SearchCtrl', {'$scope' : $rootScope });
+		};
+	}));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(SearchCtrl.awesomeThings.length).toBe(3);
-  });
+	it('should fetch authentication token', function() {
+		$httpBackend.expectGET('/auth');
+		var controller = createController();
+		$httpBackend.flush();
+	});
 });

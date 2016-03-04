@@ -1,9 +1,9 @@
-<form name="contactForm" novalidate ng-hide="sentForm">
+<form name="contactForm" novalidate ng-hide="sentForm" ng-model="form">
 	<div class="form-group row" show-errors='{showSuccess: true}'>
         <label class="control-label col-xs-12 col-sm-6 col-lg-4">Nom d'utilisateur: </label>
 		<div class="col-xs-12 col-sm-6 col-lg-8">
 			<input type="text" class="form-control" name="contactName" ng-model="contact.name" required />
-			<p class="help-block text-center" ng-show="contactForm.contactName.$error.required">Le nom d'utilisateur est requis.</p>
+			<p id="emptyNameError" class="help-block text-center" ng-show="contactForm.contactName.$error.required">Le nom d'utilisateur est requis.</p>
 		</div>
 	</div>
 	<div class="form-group row" show-errors='{showSuccess: true}'>
@@ -11,8 +11,8 @@
 		<div class="col-xs-12 col-sm-6 col-lg-8">
 			<input type="email" class="form-control" name="contactEmail" ng-model="contact.email" required />
 			<div class="help-block text-center">
-				<p ng-show="contactForm.contactEmail.$error.required">L'adresse courriel est requis. </p>
-				<p ng-show="contactForm.contactEmail.$error.email">L'adresse courriel est invalide. </p>
+				<p id="emptyEmailError" ng-show="contactForm.contactEmail.$error.required">L'adresse courriel est requis. </p>
+				<p id="invalidEmailError"ng-show="contactForm.contactEmail.$error.email">L'adresse courriel est invalide. </p>
 			</div>
 		</div>
     </div>
@@ -31,12 +31,12 @@
 		<label class="control-label col-xs-12 col-sm-6 col-lg-4">Votre message: </label>
 		<div class="col-xs-12 col-sm-12 col-lg-12">
 			<textarea rows="4" class="form-control" name="message" ng-model="contact.message" required />
-			<p class="help-block text-center" ng-show="contactForm.message.$error.required">Le message est requis.</p>
+			<p id="emptyMessageError" class="help-block text-center" ng-show="contactForm.message.$error.required">Le message est requis.</p>
 		</div>
 	</div>
 	<div class="form-group row">
 		<div class="col-xs-12 col-sm-12 col-lg-12">
-			<button type="submit" class="btn btn-primary pull-right" ng-disabled="contactForm.$invalid" ng-click="sendForm()">
+			<button id="submitButton" type="submit" class="btn btn-primary pull-right" ng-disabled="contactForm.$invalid" ng-click="sendForm()">
 				Envoyer
 			</button>
 			<popover text="Veuillez tout remplir correctement." class="pull-right" icon="glyphicon glyphicon-warning-sign" ng-show="contactForm.$invalid"></popover>
