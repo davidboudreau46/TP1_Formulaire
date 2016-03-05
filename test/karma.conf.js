@@ -40,15 +40,6 @@ module.exports = function(config) {
       "test/spec/**/*.js",
 	  "client/{app,components}/**/*.html"
     ],
-	
-	preprocessors: {
-		'**/*.html': 'ng-html2js',
-	},
- 
-	ngHtml2JsPreprocessor: {
-		stripPrefix: 'client/',
-		moduleName: 'templates'
-	},
 
     // list of files / patterns to exclude
     exclude: [

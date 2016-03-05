@@ -2,10 +2,10 @@
 
   <div class="jumbotron">
     <p>Entrer le nom du film que vous recherchez :</p>
-    <input class="ng-pristine ng-valid ng-empty ng-touched" type="text" ng-model="search.filter" ng-change="Search()" id="keywordInput" ng-model-options="{ debounce: 300 }"/>
+    <input class="ng-pristine ng-valid ng-empty ng-touched" type="text" ng-model="filter" ng-change="Search()" id="keywordInput" ng-model-options="{ debounce: 300 }"/>
   </div>
 
-  <div class="container" id="searchResult" style="display: none">
+  <div class="container" id="searchResult" ng-hide="isSearch" ng-model="searchResult">
     <div class="jumbotron">
       <div class = "row">
         <div ng-repeat="movie in movies">
